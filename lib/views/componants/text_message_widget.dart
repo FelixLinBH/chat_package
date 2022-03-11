@@ -18,11 +18,11 @@ class TextMessageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment:
-          message.isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      message.isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         ConstrainedBox(
           constraints: BoxConstraints(
-              maxWidth: MediaQuery.of(context).size.width / 2, minWidth: 50),
+              maxWidth: MediaQuery.of(context).size.width / 1.4, minWidth: 50),
           child: Container(
             // width: 200,
             // color: MediaQuery.of(context).platformBrightness == Brightness.dark
@@ -39,6 +39,7 @@ class TextMessageWidget extends StatelessWidget {
             child: Text(
               message.text ?? '',
               textDirection: TextDirection.rtl,
+              textAlign: TextAlign.left,
               style: TextStyle(
                 color: message.isSender
                     ? Colors.white
