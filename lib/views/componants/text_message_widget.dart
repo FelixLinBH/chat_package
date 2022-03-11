@@ -38,7 +38,7 @@ class TextMessageWidget extends StatelessWidget {
             ),
             child: Text(
               message.text ?? '',
-              textDirection: TextDirection.rtl,
+              // textDirection: TextDirection.rtl,
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: message.isSender
