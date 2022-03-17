@@ -314,8 +314,8 @@ packages:
     dependency: "direct main"
     description:
       path: record
-      ref: bfbefa3f6b0e0b24b9240bfcc0e8c88b472f268d
-      resolved-ref: bfbefa3f6b0e0b24b9240bfcc0e8c88b472f268d
+      ref: "0419211c549751682712353f640cf7d5d4faf3e8"
+      resolved-ref: "0419211c549751682712353f640cf7d5d4faf3e8"
       url: "git@github.com:FelixLinBH/record.git"
     source: git
     version: "3.0.3"

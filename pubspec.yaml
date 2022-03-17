@@ -19,7 +19,7 @@ dependencies:
   record:
     git:
       url: git@github.com:FelixLinBH/record.git
-      ref: bfbefa3f6b0e0b24b9240bfcc0e8c88b472f268d
+      ref: 0419211c549751682712353f640cf7d5d4faf3e8
       path: record
   intl: ^0.17.0
   photo_view: ^0.12.0
