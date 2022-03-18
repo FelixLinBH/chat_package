@@ -124,7 +124,7 @@ class _TypingIndicatorState extends State<TypingIndicator>
       reverseCurve: const Interval(0.0, 1.0, curve: Curves.easeOut),
     ).drive(Tween<double>(
       begin: 0.0,
-      end: 60.0,
+      end: 50.0,
     ));
 
     _smallBubbleAnimation = CurvedAnimation(
@@ -197,27 +197,11 @@ class _TypingIndicatorState extends State<TypingIndicator>
           child: child,
         );
       },
-      child: Stack(
-        children: [
-          // _buildAnimatedBubble(
-          //   animation: _smallBubbleAnimation,
-          //   left: 8,
-          //   bottom: 8,
-          //   bubble: _buildCircleBubble(8),
-          // ),
-          // _buildAnimatedBubble(
-          //   animation: _mediumBubbleAnimation,
-          //   left: 10,
-          //   bottom: 10,
-          //   bubble: _buildCircleBubble(16),
-          // ),
-          _buildAnimatedBubble(
-            animation: _largeBubbleAnimation,
-            left: 0,
-            bottom: 0,
-            bubble: _buildStatusBubble(),
-          ),
-        ],
+      child: _buildAnimatedBubble(
+        animation: _largeBubbleAnimation,
+        left: 0,
+        bottom: 0,
+        bubble: _buildStatusBubble(),
       ),
     );
   }
@@ -228,20 +212,16 @@ class _TypingIndicatorState extends State<TypingIndicator>
     required double bottom,
     required Widget bubble,
   }) {
-    return Positioned(
-      left: left,
-      bottom: bottom,
-      child: AnimatedBuilder(
-        animation: animation,
-        builder: (context, child) {
-          return Transform.scale(
-            scale: animation.value,
-            alignment: Alignment.bottomLeft,
-            child: child,
-          );
-        },
-        child: bubble,
-      ),
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context, child) {
+        return Transform.scale(
+          scale: animation.value,
+          alignment: Alignment.bottomLeft,
+          child: child,
+        );
+      },
+      child: bubble,
     );
   }
 
