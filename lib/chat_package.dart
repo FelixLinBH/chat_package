@@ -123,7 +123,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   if (!canceled && source != null) {
                     setState(() {
                       widget.messages
-                          .add(ChatMessage(isSender: true, audioPath: source));
+                          .add(ChatMessage(isSender: true, audioPath: source, isLoading: false));
                       widget.scrollController?.jumpTo(
                           widget.scrollController!.position.maxScrollExtent +
                               90);
@@ -137,7 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   // final name = file.path.split('/').last;
                   setState(() {
                     widget.messages
-                        .add(ChatMessage(isSender: true, imagePath: file.path));
+                        .add(ChatMessage(isSender: true, imagePath: file.path, isLoading: false));
                   });
 
                   setState(() {
@@ -157,7 +157,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 if (text != null) {
                   setState(() {
                     widget.messages
-                        .add(ChatMessage(isSender: true, text: text));
+                        .add(ChatMessage(isSender: true, text: text, isLoading: false));
 
                     widget.scrollController?.jumpTo(
                         widget.scrollController!.position.maxScrollExtent + 50);

@@ -12,6 +12,8 @@ class ChatMessage {
   String? audioPath;
   final bool isSender;
   DateTime? createdAt;
+  final bool isLoading;
+
   ChatMessage({
     this.text,
     this.imageUrl,
@@ -20,6 +22,7 @@ class ChatMessage {
     this.audioPath,
     required this.isSender,
     this.createdAt,
+    required this.isLoading
   });
 
   ChatMessage copyWith({
@@ -30,6 +33,7 @@ class ChatMessage {
     String? audioPath,
     bool? isSender,
     DateTime? createdAt,
+    bool? isLoading,
   }) {
     return ChatMessage(
       text: text ?? this.text,
@@ -39,6 +43,7 @@ class ChatMessage {
       audioPath: audioPath ?? this.audioPath,
       isSender: isSender ?? this.isSender,
       createdAt: createdAt ?? this.createdAt,
+      isLoading: isLoading ?? this.isLoading,
     );
   }
 
@@ -52,6 +57,7 @@ class ChatMessage {
       'audioPath': audioPath,
       'isSender': isSender,
       'createdAt': createdAt?.toIso8601String(),
+      'isLoading': isLoading,
     };
   }
 
@@ -66,6 +72,7 @@ class ChatMessage {
       audioPath: map['audioPath'],
       isSender: map['isSender'],
       createdAt: DateTime.parse(map['createdAt']),
+      isLoading: map['isLoading'],
     );
   }
 
@@ -77,7 +84,7 @@ class ChatMessage {
   /// override the toString function
   @override
   String toString() {
-    return 'ChatMessage(text: $text, imageUrl: $imageUrl, imagePath: $imagePath, audioUrl: $audioUrl, audioPath: $audioPath, isSender: $isSender, createdAt: $createdAt)';
+    return 'ChatMessage(text: $text, imageUrl: $imageUrl, imagePath: $imagePath, audioUrl: $audioUrl, audioPath: $audioPath, isSender: $isSender, createdAt: $createdAt, isLoading: $isLoading)';
   }
 
   /// override the '==' operator
@@ -92,18 +99,20 @@ class ChatMessage {
         other.audioUrl == audioUrl &&
         other.audioPath == audioPath &&
         other.isSender == isSender &&
-        other.createdAt == createdAt;
+        other.createdAt == createdAt &&
+        other.isLoading == isLoading;
   }
 
   @override
   int get hashCode {
     return text.hashCode ^
-        imageUrl.hashCode ^
-        imagePath.hashCode ^
-        audioUrl.hashCode ^
-        audioPath.hashCode ^
-        isSender.hashCode ^
-        createdAt.hashCode;
+    imageUrl.hashCode ^
+    imagePath.hashCode ^
+    audioUrl.hashCode ^
+    audioPath.hashCode ^
+    isSender.hashCode ^
+    createdAt.hashCode ^
+    isLoading.hashCode;
   }
 
   /// check message type to render the right widget
