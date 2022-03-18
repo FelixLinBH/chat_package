@@ -12,7 +12,7 @@ class ChatMessage {
   String? audioPath;
   final bool isSender;
   DateTime? createdAt;
-  final bool isLoading;
+  bool isLoading;
 
   ChatMessage({
     this.text,
