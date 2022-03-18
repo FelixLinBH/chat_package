@@ -11,7 +11,7 @@ const kDefaultPadding = 20.0;
 
 /// function to formate the date
 String dateStringFormatter(DateTime date) {
-  var format = DateFormat.yMd();
+  var format = DateFormat.Hms();
   var dateString = format.format(date);
   return dateString;
 }
